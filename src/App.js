@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Contect from "./component/contect/Contect";
+import Experience from "./component/experience/Experience";
+import Fotter from "./component/fotter/Fotter";
+import Intro from "./component/intro/Intro";
+import Navbar from "./component/navbar/Navbar";
+import Portfolio from "./component/portfolio/Portfolio";
+import Sirvices from "./component/sirvices/Sirvices";
+import Testimonial from "./component/testimonial/Testimonial";
+import Work from "./component/work/Work";
 function App() {
+  const [clsname,setClsname]=useState("")
+  const handelActive=(active)=>{
+    setClsname(active)
+  }
+  console.log(clsname);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${clsname}`}>
+      <Navbar onActive={handelActive} />
+      <div className="body">
+        <Intro />
+        <Sirvices />
+        <Experience />
+        <Work />
+        <Portfolio />
+        <Testimonial />
+        <Contect />
+      </div>
+      <Fotter />
     </div>
   );
 }

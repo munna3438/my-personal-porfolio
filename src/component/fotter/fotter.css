@@ -1,0 +1,36 @@
+.fotter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -6rem 0rem -20rem -4.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.f-image {
+  width: 100%;
+}
+.f-content {
+  position: absolute;
+  top: 23rem;
+  color: #fff;
+  text-align: center;
+}
+.f-content span {
+  font-size: 19px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+.f-content .f-icon {
+  margin-top: 20px;
+}
+.f-content .f-icon i {
+  font-size: 3rem;
+  margin: 15px;
+  cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+  .f-content {
+    left: 5rem;
+  }
+}

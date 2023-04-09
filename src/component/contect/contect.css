@@ -1,0 +1,48 @@
+.contect {
+  display: flex;
+}
+.contect-left {
+  flex: 6;
+  z-index: 10;
+}
+.contect-right {
+  flex: 6;
+  position: relative;
+  z-index: 10;
+}
+.contect-right .form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.contect-right .form input,
+textarea {
+  border: 2px solid orange;
+  border-radius: 10px;
+  font-size: 18px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.contect-right .form input {
+  height: 2.2rem;
+}
+.contect-right .form input:focus {
+  border: 2px solid orange;
+}
+.contect-right .form button {
+  display: block;
+  width: 80px;
+  margin: auto;
+  border: none;
+}
+@media screen and (max-width: 480px) {
+  .contect {
+    flex-direction: column;
+  }
+  .contect-right .form {
+    margin: auto;
+  }
+}

@@ -1,0 +1,100 @@
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.intro .i-left {
+  width: 50%;
+}
+
+.intro .i-left h1 {
+  font-family: "Kalam", cursive;
+  font-size: 40px;
+  line-height: 2.2rem;
+  color: var(--primary-color);
+}
+.intro .i-left h1 span {
+  color: var(--orange);
+}
+
+.i-left .text-content a {
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.i-left .i-l-social {
+  position: relative;
+  top: 3rem;
+  text-align: center;
+}
+
+.i-left .i-l-social .icon {
+  font-size: 40px;
+  margin: 0 20px;
+  color: var(--orange);
+}
+
+.intro .i-right {
+  width: 50%;
+  z-index: 1;
+}
+
+.intro .i-right .i-r-image {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.my-pic {
+  height: 100%;
+  width: auto;
+}
+.i-float1 img {
+  width: 100%;
+  height: auto;
+}
+.i-float2 img {
+  width: 100%;
+  height: auto;
+}
+.i-float1 {
+  position: absolute;
+  top: 70px;
+  right: -30px;
+}
+.i-float2 {
+  position: absolute;
+  bottom: 3rem;
+  left: -5rem;
+}
+@media screen and (max-width: 480px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+  }
+  .intro .i-left {
+    width: 100%;
+  }
+  .i-left .i-l-social {
+    position: relative;
+    top: 2rem;
+  }
+  .i-float1 {
+    top: 10px;
+    right: -8rem;
+  }
+  .i-float2 {
+    bottom: -1rem;
+    left: -7rem;
+  }
+  .intro .i-right .i-r-image {
+    height: 40vh;
+  }
+  .my-pic {
+    height: 300px;
+    width: 300px;
+  }
+}
