@@ -1,4 +1,4 @@
-import CV from "../../text/myCv.pdf";
+import CV from "../../cv/My_Pesional_Cv.pdf";
 import ServiceCard from "./ServiceCard";
 import "./sirvices.css";
 
