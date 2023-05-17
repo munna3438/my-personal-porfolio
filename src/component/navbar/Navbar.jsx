@@ -4,10 +4,17 @@ import { useEffect, useState } from "react";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
 import { Link } from "react-scroll";
+import MobileMenu from "./MobileMenu";
 import "./Navbar.css";
 const Navbar = (props) => {
   const [toggle, setToggle] = useState(false);
   const [active, setActive] = useState("");
+  const [openManue, setOpenManue] = useState(false);
+
+  const handelManue = () => {
+    return openManue ? "active" : "";
+  };
+  
   const toggleHandel = () => {
     setToggle(!toggle);
   };
@@ -28,7 +35,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <div id="navbar" className={`navbar ${classHandel("navbar")}`}>
+      <div id="navbar" className={`navbar ${classHandel("navbar")} `}>
         <div className="wrapper">
           <div className="left">
             <div className="logo">
@@ -68,16 +75,16 @@ const Navbar = (props) => {
                     to="sirvices"
                     smooth={true}
                     activeClass="activeClass">
-                    <span>Servces</span>
+                    <span>Skills</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     spy={true}
-                    to="experience"
+                    to="work"
                     smooth={true}
                     activeClass="activeClass">
-                    <span>Experience</span>
+                    <span>Process</span>
                   </Link>
                 </li>
                 <li>
@@ -95,7 +102,7 @@ const Navbar = (props) => {
                     to="testimonial"
                     smooth={true}
                     activeClass="activeClass">
-                    <span>Testimonial</span>
+                    <span>Gallery</span>
                   </Link>
                 </li>
               </ul>
@@ -104,13 +111,18 @@ const Navbar = (props) => {
               <Link spy={true} to="contect" smooth={true}>
                 <span className="btn">contect</span>
               </Link>
-              {/* <a href="#contect" >
-                contect
-              </a> */}
+            </div>
+            <div className={`ham${handelManue()}`}  >
+              <div className="hambergur" onClick={() => setOpenManue(!openManue)}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    <MobileMenu handelManue={handelManue()}/>
     </>
   );
 };

@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./testimonial.css";
+import "./gallery.css";
 
 //slide image
 const images = [
@@ -98,7 +98,7 @@ const images = [
   },
 ];
 
-const Testimonial = () => {
+const Gallery = () => {
   const progressCircle = useRef(null);
   const progressContent = useRef(null);
   const onAutoplayTimeLeft = (s, time, progress) => {
@@ -109,7 +109,7 @@ const Testimonial = () => {
     <div className="section testimonial" id="testimonial">
       <div className="t-title my-title-style">
         <h1>
-          Clients always get <span>Exceptional Work </span> from me...
+          A Glimpse into  <span>the Work</span> of My Amazing Clients...
         </h1>
       </div>
       <div className="t-slide">
@@ -157,4 +157,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default Gallery;

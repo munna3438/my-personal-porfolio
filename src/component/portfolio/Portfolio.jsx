@@ -1,51 +1,90 @@
-import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
+import {
+  featuredPortfolio,
+  ProjectPortfolio,
+  webPortfolio, WordpressPortfolio
+} from "../../data";
+import LIst from "./LIst";
 import "./portfolio.css";
-const imgs = [
+const lists = [
   {
     id: 1,
-    img: "assets/image/img1.jpg",
+    li: "Featured",
   },
   {
     id: 2,
-    img: "assets/image/img2.jpg",
+    li: "Website",
   },
   {
     id: 3,
-    img: "assets/image/img3.jpg",
+    li: "Project",
   },
   {
     id: 4,
-    img: "assets/image/img4.jpg",
+    li: "Wordpress",
   },
-  {
-    id: 5,
-    img: "assets/image/img5.jpg",
-  },
+  // {
+  //   id: 5,
+  //   li: "Web App",
+  // },
 ];
 const Portfolio = () => {
+  const [selected, setSelected] = useState("Featured");
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    switch (selected) {
+      case "Featured":
+        setData(featuredPortfolio);
+        break;
+      case "Website":
+        setData(webPortfolio);
+        break;
+      case "Project":
+        setData(ProjectPortfolio);
+        break;
+      case "Wordpress":
+        setData(WordpressPortfolio);
+        break;
+      // case "Web App":
+      //   setData(contentPortfolio);
+      //   break;
+
+      default:
+        break;
+    }
+  }, [selected]);
   return (
     <div className="section portfolio" id="portfolio">
-      <div className="p-tytle my-title-style">
-        <h1>Me! With My</h1>
-        <h1>
-          <span>Friends</span>
-        </h1>
+      <div className="ptop">
+        <div className="ptext">
+          <h1>Portfolio</h1>
+        </div>
+        <div className="pmenu">
+          <ul>
+            {lists.map((list) => (
+              <LIst
+                li={list.li}
+                active={selected === list.li}
+                setSelected={setSelected}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="p-content">
-        <Swiper
-          className="pSlider"
-          grabCursor={true}
-          spaceBetween={20}
-          slidesPerView={3}>
-          {imgs.map((img) => {
-            return (
-              <SwiperSlide>
-                <img key={img.id} src={img.img} alt="" />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+      <div className="p-container">
+        {data.map((item) => (
+          <a target="_blank" href={item.link} rel="noreferrer">
+            <div className="p-item">
+              <img  src={item.img} alt="" className="p-item-img"/>
+              <div className="p-item-overlay">
+                <div className="p-item-text">
+                  <h3>{item.title}</h3>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+        ))}
       </div>
     </div>
   );
